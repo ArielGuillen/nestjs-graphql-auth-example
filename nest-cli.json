@@ -1,8 +1,25 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "./apps",
+  "monorepo": true,
   "compilerOptions": {
     "deleteOutDir": true
+  },
+  "projects": {
+    "products": {
+      "type": "application",
+      "root": "apps/products",
+      "entryFile": "main",
+      "sourceRoot": "apps/products/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/products/tsconfig.app.json",
+        "assets": [
+          {
+            "include": "./**/*.{graphql,gql}"
+          }
+        ]
+      }
+    }
   }
 }
