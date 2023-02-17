@@ -1,0 +1,9 @@
+type Query{
+  getProducts: [Product]
+}
+
+type Mutation{
+  addProduct(product: IProduct!): Product
+  deleteProduct(id: ID!): Product
+
+}
