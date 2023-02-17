@@ -1,0 +1,5 @@
+type Product{
+  _id: String!,
+  name: String,
+  price: Float
+}
