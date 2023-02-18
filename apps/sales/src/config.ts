@@ -4,8 +4,8 @@ const PROD = env.NODE_ENV == 'prod' ? true : false;
 
 const ENV = {
   APOLLO: {
-    typePaths: [`apps/products/**/*.{graphql,gql}`],
-    path: `apps/products/src/graphql.ts`,
+    typePaths: [`apps/sales/**/*.{graphql,gql}`],
+    path: `apps/sales/src/graphql.ts`,
   },
   MONGO: {
     URI: env.MONGO_URI,

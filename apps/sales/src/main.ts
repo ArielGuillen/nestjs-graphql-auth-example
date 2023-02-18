@@ -6,7 +6,7 @@ async function handler() {
   const app = await NestFactory.create(AppModule);
   await app.listen(ENV.PORT);
 
-  console.log(`${ENV.ENVIROMENT} 🚀 Products app started in port ${ENV.PORT}`);
+  console.log(`${ENV.ENVIROMENT} 🚀 Sales App started in port ${ENV.PORT}`);
 }
 
 if (require.main === module) {

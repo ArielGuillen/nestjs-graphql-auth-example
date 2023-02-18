@@ -1,9 +1,9 @@
 import { Args, Mutation, Query } from '@nestjs/graphql';
 import { Resolver } from '@nestjs/graphql';
 import { ProductsService } from './services/';
-import { IProduct } from './graphql';
+import { IProduct } from '../../graphql';
 
-@Resolver()
+@Resolver('Product')
 export class ProductsResolver {
   constructor(private readonly productsService: ProductsService) {}
 
