@@ -11,13 +11,11 @@ Test Backend Application.
 
 ## Installation
 
-## Instalacion
-
 ```bash
-# Instalar el cliente de nestjs globalmente
+# Install nestjs client globally
 $ yarn add --global @nestjs/cli
 
-#Instalar las dependencias
+# Install dependencies
 $ yarn install
 ```
 
@@ -44,7 +42,7 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
-## Recursos de interes para Nestjs
+## Interest Resources for Nestjs
 
 - [ Nestjs Docs ](https://docs.nestjs.com/) - Official Documentation of Nestjs
 - [Modulos](https://www.instintoprogramador.com.mx/2020/12/nestjs-modulos.html) - Explanation of modules in Nestjs
@@ -68,11 +66,12 @@ $ Added Authentication module for users
 #[optional footer(s)]
 $ Reviewed-by: Z
 $ Refs: #123
+```
 
 The scope is optional and can be related to the application directory or the module that is being modified.
 The message must be brief and concise, and must be written in infinitive.
 
-Los tipos de commit son:
+The types of commit are:
 
 - **feat**: new functionality
 - **fix**: error correction
@@ -90,4 +89,3 @@ Los tipos de commit son:
 ## License
 
 Nest is [MIT licensed](LICENSE).
-```
