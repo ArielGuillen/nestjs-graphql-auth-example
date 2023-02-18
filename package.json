@@ -7,19 +7,20 @@
   "license": "UNLICENSED",
   "scripts": {
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
-    "start:dev": "nest start --watch products",
-    "dev:products": "nest start --watch products",
-    "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:dev": "yarn types-gen && nest start --watch",
+    "dev:sales": "nest start -w sales",
+    "dev:users": "nest start -w users",
+    "start:debug": "nest start --debug -w",
+    "start:prod": "node dist/apps/nest-graphql/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "types-gen": "ts-node ./libs/utils/codegen/scripts/generate-types.ts",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./apps/nest-graphql/test/jest-e2e.json"
   },
   "dependencies": {
     "@apollo/subgraph": "^2.3.2",
@@ -27,6 +28,7 @@
     "@nestjs/common": "^9.0.0",
     "@nestjs/core": "^9.0.0",
     "@nestjs/graphql": "^10.2.0",
+    "@nestjs/microservices": "^9.3.9",
     "@nestjs/mongoose": "^9.2.1",
     "@nestjs/platform-express": "^9.0.0",
     "apollo-server-core": "^3.11.1",
@@ -69,7 +71,7 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -77,7 +79,10 @@
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/apps/"
+    ]
   }
 }

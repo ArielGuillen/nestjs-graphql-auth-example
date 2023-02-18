@@ -1,0 +1,8 @@
+extend type Query{
+  getUsers: [User]
+}
+
+extend type Mutation{
+  addUser(user: IUser!): User
+  deleteUser(id: ID!): User
+}

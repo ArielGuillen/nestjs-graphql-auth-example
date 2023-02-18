@@ -17,7 +17,7 @@ const generateDefinitions = async ({ typePaths, path }: Config) => {
 
 export default async function generateTypes(appname: string) {
   generateDefinitions({
-    typePaths: [`src/${appname}/**/*.{graphql,gql}`],
-    path: `src/${appname}/graphql.ts`,
+    typePaths: [`apps/${appname}/src/**/*.{graphql,gql}`],
+    path: `apps/${appname}/src/graphql.ts`,
   });
 }

@@ -3,9 +3,10 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ApolloFederationDriverConfig } from '@nestjs/apollo';
 
-import { ProductsModule } from './modules/products/products.module';
-import { GqlModuleConfig } from 'libs/config/app.gql';
 import ENV from './config';
+import { GqlModuleConfig } from 'libs/config/app.gql';
+import { UsersModule } from './modules/users/users.module';
+import { ProductsModule } from './modules/products/products.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import ENV from './config';
       },
     }),
     ProductsModule,
+    UsersModule,
   ],
 })
 export class AppModule {}

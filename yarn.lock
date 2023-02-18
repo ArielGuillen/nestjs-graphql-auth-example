@@ -1687,6 +1687,14 @@
   resolved "https://registry.yarnpkg.com/@nestjs/mapped-types/-/mapped-types-1.2.2.tgz#d9ddb143776e309dbc1a518ac1607fddac1e140e"
   integrity sha512-3dHxLXs3M0GPiriAcCFFJQHoDFUuzTD5w6JDhE7TyfT89YKpe6tcCCIqOZWdXmt9AZjjK30RkHRSFF+QEnWFQg==
 
+"@nestjs/microservices@^9.3.9":
+  version "9.3.9"
+  resolved "https://registry.yarnpkg.com/@nestjs/microservices/-/microservices-9.3.9.tgz#dbcecd5c3903ee6433be303eec0415ff9e60fb81"
+  integrity sha512-G4EsQpOS3l2dWjJID+z/YyDPTx+SEq/5YQ/cC8XV9Hap1S0rEmo+Z1R2OdlUt+ZnkcJp7H0GIHiB0EjaYanmjA==
+  dependencies:
+    iterare "1.2.1"
+    tslib "2.5.0"
+
 "@nestjs/mongoose@^9.2.1":
   version "9.2.1"
   resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-9.2.1.tgz#b880feb7ce52a081e81374ddf3c3ed0eff1224f4"

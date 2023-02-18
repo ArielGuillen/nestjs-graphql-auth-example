@@ -7,18 +7,22 @@
     "deleteOutDir": true
   },
   "projects": {
-    "products": {
+    "users": {
       "type": "application",
-      "root": "apps/products",
+      "root": "apps/users",
       "entryFile": "main",
-      "sourceRoot": "apps/products/src",
+      "sourceRoot": "apps/users/src",
       "compilerOptions": {
-        "tsConfigPath": "apps/products/tsconfig.app.json",
-        "assets": [
-          {
-            "include": "./**/*.{graphql,gql}"
-          }
-        ]
+        "tsConfigPath": "apps/users/tsconfig.app.json"
+      }
+    },
+    "sales": {
+      "type": "application",
+      "root": "apps/sales",
+      "entryFile": "main",
+      "sourceRoot": "apps/sales/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/sales/tsconfig.app.json"
       }
     }
   }

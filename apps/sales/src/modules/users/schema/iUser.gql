@@ -1,0 +1,4 @@
+input IUser{
+  name: String!
+  email: String!
+}
