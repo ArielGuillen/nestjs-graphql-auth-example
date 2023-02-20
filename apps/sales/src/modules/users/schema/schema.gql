@@ -3,6 +3,6 @@ extend type Query{
 }
 
 extend type Mutation{
-  addUser(user: IUser!): User
+  createUser(user: IUser!): User
   deleteUser(id: ID!): User
 }

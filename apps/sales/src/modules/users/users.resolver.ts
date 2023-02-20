@@ -14,8 +14,8 @@ export class UserResolver {
   }
 
   @Mutation()
-  async addUser(@Args('user') user: IUser) {
-    const item = await this.userService.addUser(user);
+  async createUser(@Args('user') user: IUser) {
+    const item = await this.userService.createUser(user);
     return item;
   }
 

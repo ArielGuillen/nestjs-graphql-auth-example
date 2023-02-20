@@ -16,7 +16,7 @@ export class UserService extends Service<UserModel> {
     super(model);
   }
 
-  async addUser(user: IUser) {
+  async createUser(user: IUser) {
     console.log('Service:', user);
 
     this.usersClient.emit('user_created', user);
