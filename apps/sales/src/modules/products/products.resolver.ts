@@ -14,7 +14,7 @@ export class ProductsResolver {
   }
 
   @Mutation()
-  async addProduct(@Args('product') product: IProduct) {
+  async createProduct(@Args('product') product: IProduct) {
     const item = await this.productsService.add(product);
     return item;
   }

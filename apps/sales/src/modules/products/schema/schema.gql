@@ -3,7 +3,7 @@ type Query{
 }
 
 type Mutation{
-  addProduct(product: IProduct!): Product
+  createProduct(product: IProduct!): Product
   deleteProduct(id: ID!): Product
 
 }
