@@ -1,12 +1,16 @@
 import { NestFactory } from '@nestjs/core';
-import { Transport, MicroserviceOptions } from '@nestjs/microservices';
+import { AppModule } from './app.module';
+import ENV from './config';
 
-import { UsersModule } from './users.module';
+async function handler() {
+  const app = await NestFactory.create(AppModule);
+  await app.listen(ENV.PORT);
 
-async function bootstrap() {
-  const app = await NestFactory.createMicroservice<MicroserviceOptions>(UsersModule, {
-    transport: Transport.TCP,
-  });
-  await app.listen();
+  console.log(`${ENV.ENVIROMENT} 🚀 Users App started in port ${ENV.PORT}`);
 }
-bootstrap();
+
+if (require.main === module) {
+  handler();
+}
+
+export default handler;

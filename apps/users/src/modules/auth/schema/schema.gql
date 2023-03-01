@@ -1,0 +1,4 @@
+type Mutation{
+  login(loginUserInput: LoginUserInput!): LoginResponse
+  singup(singupUserInput: LoginUserInput!): User
+}

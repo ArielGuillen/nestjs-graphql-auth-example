@@ -3,9 +3,11 @@
 // If you add a new app, you need to import it here and add it to the bootstrap function.
 // If you want to run a single app, you can run it directly from the app folder.
 import salesHandler from '@/sales/src/main';
+import usersHandler from '@/users/src/main';
 
 async function bootstrap() {
   salesHandler();
+  usersHandler();
 }
 
 bootstrap();

@@ -2,4 +2,5 @@ type User {
   _id: String!
   name: String
   email: String
+  username: String
 }

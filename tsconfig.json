@@ -11,9 +11,8 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "paths": {
-      "@/sales/*": [
-        "apps/sales/*"
-      ]
+      "@/sales/*": ["apps/sales/*"],
+      "@/users/*": ["apps/users/*"]
     },
     "incremental": false,
     "skipLibCheck": true,
