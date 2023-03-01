@@ -24,6 +24,15 @@
       "compilerOptions": {
         "tsConfigPath": "apps/sales/tsconfig.app.json"
       }
+    },
+    "resources": {
+      "type": "application",
+      "root": "apps/resources",
+      "entryFile": "main",
+      "sourceRoot": "apps/resources/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/resources/tsconfig.app.json"
+      }
     }
   }
 }

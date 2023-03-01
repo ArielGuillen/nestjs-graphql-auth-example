@@ -11,7 +11,7 @@ import { IUser } from '@/sales/src/graphql';
 export class UserService extends Service<UserModel> {
   constructor(
     @InjectModel(UserModel.name) model: Model<UserModel>,
-    @Inject('USERS_SERVICE') private usersClient: ClientProxy,
+    @Inject('RESOURCES_SERVICE') private resourceClient: ClientProxy,
   ) {
     super(model);
   }
@@ -19,7 +19,7 @@ export class UserService extends Service<UserModel> {
   async createUser(user: IUser) {
     console.log('Service:', user);
 
-    this.usersClient.emit('user_created', user);
+    this.resourceClient.emit('resource_created', user);
     return null;
   }
 }
