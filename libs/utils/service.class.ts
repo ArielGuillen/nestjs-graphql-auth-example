@@ -44,7 +44,7 @@ export default abstract class Service<T> {
     }
   }
 
-  async add(item: Partial<T>): Promise<T> {
+  async create(item: Partial<T>): Promise<T> {
     try {
       const newItem = new this.model(item);
       await newItem.save();
