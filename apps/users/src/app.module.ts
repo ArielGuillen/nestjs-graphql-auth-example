@@ -3,11 +3,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ApolloFederationDriverConfig } from '@nestjs/apollo';
 
-import { UsersModule } from './modules/users/users.module';
 import { GqlModuleConfig } from 'libs/config/app.gql';
 import ENV from './config';
+
 import { AuthModule } from './modules/auth/auth.module';
-import { UsersResolver } from './modules/users/users.resolver';
+import { UsersModule } from './modules/users/users.module';
+import { RolesModule } from './modules/roles/roles.module';
 
 @Module({
   imports: [
@@ -20,8 +21,8 @@ import { UsersResolver } from './modules/users/users.resolver';
       },
     }),
     UsersModule,
+    RolesModule,
     AuthModule,
   ],
-  providers: [UsersResolver],
 })
 export class AppModule {}
