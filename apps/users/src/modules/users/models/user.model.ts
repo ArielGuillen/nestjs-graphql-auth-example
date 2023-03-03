@@ -13,6 +13,9 @@ export class UserModel {
 
   @Prop({ type: String })
   username: string;
+
+  @Prop([{ type: String }])
+  roles: string[];
 }
 
 export const UserSchema = SchemaFactory.createForClass(UserModel);
