@@ -17,8 +17,6 @@ export class UserService extends Service<UserModel> {
   }
 
   async createUser(user: IUser) {
-    console.log('Service:', user);
-
     this.resourceClient.emit('resource_created', user);
     return null;
   }

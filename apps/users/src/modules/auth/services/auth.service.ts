@@ -14,7 +14,7 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async validateUser(username: string, password: string): Promise<Partial<UserModel>> {
+  async validateUser(username: string, password: string): Promise<UserModel> {
     const user = await this.userService.getUser(username);
 
     const valid = await bcrypt.compare(password, user.password);
@@ -27,7 +27,9 @@ export class AuthService {
 
   async login(user: User) {
     return {
-      accesToken: this.jwtService.sign({ username: user.username, _id: user._id }),
+      accesToken: this.jwtService.sign({
+        _id: user._id,
+      }),
       user,
     };
   }
