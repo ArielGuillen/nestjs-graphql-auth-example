@@ -7,11 +7,13 @@ export const getAuthCtx = (req) => {
     const decodedToken = jwt.verify(token, env.SECRET);
     return {
       user: decodedToken._id,
+      roles: decodedToken.roles,
       public: false,
     };
   } catch (error) {
     return {
       user: null,
+      roles: null,
       public: true,
     };
   }

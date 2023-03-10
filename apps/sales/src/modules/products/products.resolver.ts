@@ -1,9 +1,8 @@
 import { Args, Mutation, Query } from '@nestjs/graphql';
 import { Resolver } from '@nestjs/graphql';
 import { ProductsService } from './services/';
-import { IProduct } from '../../graphql';
-import { Roles } from '@/users/src/modules/roles/decorators/roles.decorator';
-import { Role } from '@/users/src/modules/roles/roles.enum';
+import { Roles } from 'libs/auth/decorators/roles.decorator';
+import { Role } from 'libs/auth/constants/roles.enum';
 
 @Resolver('Product')
 export class ProductsResolver {
@@ -17,7 +16,7 @@ export class ProductsResolver {
 
   @Mutation()
   @Roles(Role.ADMIN)
-  async createProduct(@Args('product') product: IProduct) {
+  async createProduct(@Args('product') product) {
     const item = await this.productsService.create(product);
     return item;
   }

@@ -2,16 +2,12 @@ import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { Reflector } from '@nestjs/core';
 
-import { RolesService } from '../services/roles.service';
 import { Role } from 'libs/auth/constants/roles.enum';
-// import { UsersService } from '../../users/services/users.service';
+import { RolesService } from '../services/roles.service';
 
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(
-    private reflector: Reflector,
-    private roleService: RolesService, // private usersService: UsersService,
-  ) {}
+  constructor(private reflector: Reflector, private roleService: RolesService) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const requiredRoles = this.reflector.getAllAndOverride<Role[]>('roles', [
@@ -24,9 +20,15 @@ export class RolesGuard implements CanActivate {
 
     const ctx = GqlExecutionContext.create(context);
 
-    const userId = ctx.getContext().ctx.user;
-    // const user = await this.usersService.get(userId);
+    const roles = ctx.getContext().ctx.roles;
+    const hasRequiredRole = roles.some((role) => requiredRoles.includes(role));
 
-    return true;
+    if (hasRequiredRole) {
+      // console.log('Tiene al menos uno de los roles requeridos');
+      return true;
+    } else {
+      // console.log('No tiene ninguno de los roles requeridos');
+      return false;
+    }
   }
 }

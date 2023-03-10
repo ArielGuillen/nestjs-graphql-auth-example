@@ -8,5 +8,5 @@ type User{
   name: String!
   email: String
   username: String!
-  roles: [String]
+  roles: [ID]
 }

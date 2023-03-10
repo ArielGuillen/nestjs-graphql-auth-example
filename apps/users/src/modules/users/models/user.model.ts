@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import mongoose from 'mongoose';
 
 @Schema({ collection: 'users', timestamps: true })
 export class UserModel {
@@ -14,7 +15,7 @@ export class UserModel {
   @Prop({ type: String })
   username: string;
 
-  @Prop([{ type: String }])
+  @Prop([{ type: mongoose.Schema.Types.ObjectId, ref: 'RoleModel' }])
   roles: string[];
 }
 

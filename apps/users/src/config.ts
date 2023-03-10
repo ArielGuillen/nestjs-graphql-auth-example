@@ -11,7 +11,7 @@ const ENV = {
     URI: env.MONGO_USERS_URI,
   },
   JWT: {
-    singOptions: { expiresIn: '60s' },
+    signOptions: { expiresIn: '5m' },
     secret: env.SECRET,
   },
   PORT: env.USERS_PORT,
