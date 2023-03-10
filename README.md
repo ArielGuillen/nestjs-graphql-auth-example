@@ -7,7 +7,21 @@
 
 ## Description
 
-Test Backend Application.
+This is a Backend application built in Nestjs that uses a Graphql API implemented with Apollo Server.The application was developed using some of Nestjs advanced characteristics, including microservices, monorepos, authentication and authorization with JWT.
+
+The application also uses some of the advanced Nestjs characteristics, including the implementation of microservices, which allows communication between different application services, and the implementation of monorepos, which facilitates the management of multiple projects within a single application.
+
+### GraphQL
+The GRAPHQL API is used to provide an interface so that the customers of the application make Queries and Mutations in the Mongo database.The API is implemented using Apollo Server, which allows the integration of multiple data origins and the implementation of complex graphql schemes.
+
+
+### Authentication
+Authentication in this application is managed by using Nestjs  JwtService. JwtService is a tool that allows the creation and validation of tokens JWT (JSON Web tokens) for user authentication. When a user logs in the application, a token jwt is generated that contains user information, such as its id and role. This token is used to authenticate the user in each subsequent request made in the application.  JwtService also provides functions to validate and decode JWT tokens, which helps to ensure that only authenticated users have access to application resources.The use of  JwtService in this application is a recommended practice in user authentication and is an effective way to ensure application security.
+
+### Authorization
+Authorization in this application is managed by the use of RBAC (Role-Based Access Control).RBAC is an access control model that defines roles and permits for each role in an application.In this application, different roles are defined, such as "administrator" and "user", and specific permits are assigned to each role.When a user logs in the application, their role is checked and the corresponding permits are granted.This guarantees that users can only access resources for those who have permission and help to avoid security problems.The use of RBAC in this application is a recommended practice in the design of security systems and is an effective way to ensure that users only have access to adequate resources.
+
+In summary, this is an advanced backend application built in Nestjs that uses a Graphql API implemented with Apollo Server, and takes advantage of some of the advanced Nestjs features, including microservices, monorepos and authentication and authorization with JWT.
 
 ## Installation
 
