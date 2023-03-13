@@ -22,13 +22,6 @@ export class RolesGuard implements CanActivate {
 
     const roles = ctx.getContext().ctx.roles;
     const hasRequiredRole = roles.some((role) => requiredRoles.includes(role));
-
-    if (hasRequiredRole) {
-      // console.log('Tiene al menos uno de los roles requeridos');
-      return true;
-    } else {
-      // console.log('No tiene ninguno de los roles requeridos');
-      return false;
-    }
+    return hasRequiredRole;
   }
 }
