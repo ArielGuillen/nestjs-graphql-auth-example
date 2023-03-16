@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  # redis-overcommit-on-host
+  redis-overcommit:
+    build: https://github.com/bkuhl/redis-overcommit-on-host.git
+    restart: 'no'
+    privileged: true
+    volumes:
+      - /proc/sys/vm:/mnt/vm
+  redis:
+    image: 'redis'
+    restart: 'always'
+    depends_on:
+      - redis-overcommit
+    ports:
+      - 6380:6379

@@ -1,17 +1,19 @@
-import { Injectable } from '@nestjs/common';
+import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { Cache } from 'cache-manager';
 import * as bcrypt from 'bcrypt';
 
-import { LoginUserInput } from '@/users/src/graphql';
+import { LoginUserInput, User } from '@/users/src/graphql';
 import { UserModel } from '../../users/models/user.model';
 import { UsersService } from '../../users/services/users.service';
-import { User } from '@/sales/src/graphql';
 
 @Injectable()
 export class AuthService {
   constructor(
-    private readonly userService: UsersService,
+    @Inject(CACHE_MANAGER)
+    private readonly cacheManager: Cache,
     private readonly jwtService: JwtService,
+    private readonly userService: UsersService,
   ) {}
 
   async validateUser(username: string, password: string): Promise<UserModel> {
@@ -26,6 +28,7 @@ export class AuthService {
   }
 
   async login(user: User) {
+    await this.cacheManager.set(user._id.toString(), user);
     return {
       accesToken: this.jwtService.sign({
         _id: user._id,
@@ -33,6 +36,11 @@ export class AuthService {
       }),
       user,
     };
+  }
+
+  async logout(user: User) {
+    await this.cacheManager.del(user._id.toString());
+    return true;
   }
 
   async singup(singUserInput: LoginUserInput) {

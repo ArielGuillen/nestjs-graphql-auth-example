@@ -14,6 +14,10 @@ const ENV = {
     signOptions: { expiresIn: '5m' },
     secret: env.SECRET,
   },
+  REDIS: {
+    URI: env.REDIS_USERS_URI,
+    PORT: env.REDIS_USERS_PORT,
+  },
   PORT: env.USERS_PORT,
   ENVIROMENT: PROD ? '\x1b[42m PRODUCTION \x1b[0m ' : '\x1b[44m DEVELOPMENT \x1b[0m ',
 };
