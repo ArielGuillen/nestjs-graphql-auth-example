@@ -4,6 +4,7 @@ import { UseGuards } from '@nestjs/common';
 import { GqlAuthGuard } from './guards/gql-auth.guard';
 import { AuthService } from './services/auth.service';
 import { LoginUserInput } from '../../graphql';
+import { User } from 'libs/auth/decorators/user.decorator';
 
 @Resolver()
 export class AuthResolver {
@@ -13,6 +14,11 @@ export class AuthResolver {
   @UseGuards(GqlAuthGuard)
   async login(@Context() context) {
     return this.authService.login(context.user);
+  }
+
+  @Mutation()
+  async logout(@User() user: string) {
+    return this.authService.logout(user);
   }
 
   @Mutation()

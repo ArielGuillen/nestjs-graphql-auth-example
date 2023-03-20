@@ -32,14 +32,13 @@ export class AuthService {
     return {
       accesToken: this.jwtService.sign({
         _id: user._id,
-        roles: user.roles,
       }),
       user,
     };
   }
 
-  async logout(user: User) {
-    await this.cacheManager.del(user._id.toString());
+  async logout(user: string) {
+    await this.cacheManager.del(user);
     return true;
   }
 

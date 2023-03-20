@@ -14,4 +14,4 @@ services:
     depends_on:
       - redis-overcommit
     ports:
-      - 6380:6379
+      - 6379:6379

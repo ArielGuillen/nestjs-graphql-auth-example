@@ -1,4 +1,5 @@
 type Mutation{
+  logout:Boolean
   login(loginUserInput: LoginUserInput!): LoginResponse
   singup(singupUserInput: LoginUserInput!): User
 }
