@@ -5,7 +5,7 @@ type LoginResponse{
 
 type User{
   _id: ID!
-  name: String!
+  name: String
   email: String
   username: String!
   roles: [String]

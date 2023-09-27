@@ -2,3 +2,9 @@ input LoginUserInput {
   username: String!
   password: String!
 }
+
+input UpdateUserAccountInput {
+  name: String
+  email: String
+  username: String
+}
