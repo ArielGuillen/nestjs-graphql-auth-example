@@ -1,6 +1,7 @@
-import { CACHE_MANAGER, Inject, Injectable } from '@nestjs/common';
+import { ApolloError } from 'apollo-server-core';
+import { Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
-import { Cache } from 'cache-manager';
+
 import * as bcrypt from 'bcrypt';
 
 import { LoginUserInput, User } from '@/users/src/graphql';
@@ -10,14 +11,13 @@ import { UsersService } from '../../users/services/users.service';
 @Injectable()
 export class AuthService {
   constructor(
-    @Inject(CACHE_MANAGER)
-    private readonly cacheManager: Cache,
     private readonly jwtService: JwtService,
     private readonly userService: UsersService,
   ) {}
 
   async validateUser(username: string, password: string): Promise<UserModel> {
     const user = await this.userService.getUser(username);
+    if (!user) throw new ApolloError('User not found!');
 
     const valid = await bcrypt.compare(password, user.password);
     if (user && valid) {
@@ -28,7 +28,6 @@ export class AuthService {
   }
 
   async login(user: User) {
-    await this.cacheManager.set(user._id.toString(), user);
     return {
       accesToken: this.jwtService.sign({
         _id: user._id,
@@ -38,7 +37,8 @@ export class AuthService {
   }
 
   async logout(user: string) {
-    await this.cacheManager.del(user);
+    //TODO: Implement logout
+    console.log('logout', user);
     return true;
   }
 

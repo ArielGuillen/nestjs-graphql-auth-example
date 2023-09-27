@@ -1,17 +1,10 @@
-import { CACHE_MANAGER, CanActivate, ExecutionContext, Inject, Injectable } from '@nestjs/common';
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
 import { GqlExecutionContext } from '@nestjs/graphql';
 import { Reflector } from '@nestjs/core';
 
-import { Cache } from 'cache-manager';
-import { UserModel } from '../../users/models/user.model';
-
 @Injectable()
 export class RolesGuard implements CanActivate {
-  constructor(
-    @Inject(CACHE_MANAGER)
-    private readonly cacheManager: Cache,
-    private reflector: Reflector,
-  ) {}
+  constructor(private reflector: Reflector) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
     const requiredRoles = this.reflector.getAllAndOverride<string[]>('roles', [
@@ -24,11 +17,10 @@ export class RolesGuard implements CanActivate {
 
     const ctx = GqlExecutionContext.create(context);
     const id = ctx.getContext().ctx.user;
-    const user: UserModel = await this.cacheManager.get(id.toString());
+    console.log('User id: ' + id);
 
-    if (!user) return false;
-    const roles = user.roles;
-    const hasRequiredRole = roles.some((role) => requiredRoles.includes(role));
-    return hasRequiredRole;
+    //TODO: Validate roles for user id
+
+    return true;
   }
 }
