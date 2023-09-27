@@ -38,6 +38,7 @@
     "apollo-server-core": "^3.11.1",
     "apollo-server-express": "^3.11.1",
     "bcrypt": "^5.1.0",
+    "express-session": "^1.17.3",
     "graphql": "^16.6.0",
     "graphqltools": "^0.0.1",
     "jsonwebtoken": "^9.0.0",

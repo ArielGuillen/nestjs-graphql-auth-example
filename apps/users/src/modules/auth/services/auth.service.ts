@@ -36,9 +36,8 @@ export class AuthService {
     };
   }
 
-  async logout(user: string) {
-    //TODO: Implement logout
-    console.log('logout', user);
+  async logout(session) {
+    session.destroy();
     return true;
   }
 
