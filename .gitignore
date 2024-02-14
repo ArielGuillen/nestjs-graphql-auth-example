@@ -36,5 +36,8 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# VS Code
+.vscode
+
 #graphql files
 /apps/**/src/graphql.ts
