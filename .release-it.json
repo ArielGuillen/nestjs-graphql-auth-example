@@ -1,0 +1,40 @@
+{
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "$schema": "https://unpkg.com/release-it@17/schema/release-it.json",
+  "git": {
+    "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
+    "commitMessage": "chore(release): :bookmark: v${version}",
+    "tag": true,
+    "tagName": "v${version}",
+    "push": true,
+    "pushArgs": [
+      "--follow-tags",
+      "--no-verify"
+    ]
+  },
+  "github": {
+    "release": true,
+    "autoGenerate": true
+  },
+  "plugins": {
+    "@release-it/conventional-changelog": {
+      "infile": "CHANGELOG.md",
+      "header": "# Changelog\n\nTodos los cambios notables en este proyecto se documentarán en este archivo. Ver guía para commits [standard-version](https://github.com/conventional-changelog/standard-version).",
+      "preset": {
+        "name": "conventionalcommits",
+        "types": [
+          {
+            "type": "feat",
+            "section": "Features"
+          },
+          {
+            "type": "fix",
+            "section": "Bug Fixes"
+          }
+        ]
+      }
+    }
+  }
+}
